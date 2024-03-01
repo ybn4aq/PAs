@@ -7,7 +7,7 @@ option = input(
 )
 if option == "1":
     domain = False
-elif option == "0":
+elif option == "2":
     pass
 else:
     print("Eror! Invalid input. Please type either 1 or 0. Exiting program.")
