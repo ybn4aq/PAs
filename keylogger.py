@@ -12,7 +12,8 @@ if domain:
     target_sock = socket.gethostbyname(target)  # TODO: error handling
 else:
     target = input("Type an IP address to scan their ports. ")
-    target_sock = socket.gethostbyaddr(target)  # TODO: error handling
+    # target_sock = socket.gethostbyaddr(target)  # TODO: error handling
+    target_sock = target
 print(target_sock)
 start_port = int(input("What's your start port?"))  # TODO: handle improper input
 end_port = int(input("What's your end port?"))
