@@ -130,13 +130,13 @@ class RSA:
         for i in range(len(ciphertext)):
             cur_val = ciphertext[i]
             # using third parameter of math.pow function to speed up computation
-            ciphertext[i] = int(math.pow(cur_val, e)) % n
-        print(ciphertext)
+            ciphertext[i] = pow(cur_val, e, n)
+        print("Ciphertext: " + str(ciphertext))
         # Decrypting ciphertext
         decrypted_text = []
         for i in range(len(ciphertext)):
             cur_val = ciphertext[i]
-            decrypted_text.append(math.pow(cur_val, d) % n)
+            decrypted_text.append(pow(cur_val, d, n))
         # Converting ASCII ints back to chars
         for i in range(len(decrypted_text)):
             cur_val = decrypted_text[i]
