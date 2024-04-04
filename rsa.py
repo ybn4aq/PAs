@@ -101,7 +101,6 @@ class RSA:
 
     def __init__(self):
         self.pr = Primes()
-        print(len(self.pr.primes))
 
     def rsa(self, M) -> None:
         M = str(M)  # treat everything as a string
@@ -164,7 +163,5 @@ class RSA:
         return self.pr.primes[idx]
 
 
-# TODO: main code (asking user for M, etc)
-
 rsa = RSA()
-rsa.rsa("this is a test")
+rsa.rsa(input("Enter message: "))
