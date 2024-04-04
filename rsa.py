@@ -1,4 +1,6 @@
 import random
+import math
+from primes import Primes
 
 class RSA:
 
@@ -6,10 +8,33 @@ class RSA:
         self.pr = Primes()
 
     def rsa(self, M):
-        p = self.generate_random_prime()
-        q = self.generate_random_prime()
+        # p and q will both be random primes between 1 and 1,000,000
+        # p = self.generate_random_prime()
+        # q = self.generate_random_prime()
+        p = 3011
+        q = 1009
+        # Grabbing n and phi by simple mathematical operations
+        n = p * q
+        phi  = (p-1)*(q-1)
+        # Grab the smallest possible value of e for performance
+        for i in range(2, phi):
+            if math.gcd(i, phi) == 1:
+                e = i
+                break
+        print("e: " + str(e))
+        d = self.get_d(e, phi)
+        print("d: " + str(d))
+    
 
-
+    def get_d(self, A, C) -> int:
+        '''Calculates modular ivnerse for A (mod C)
+        Created with help from
+        https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/modular-inverses
+        '''
+        for B in range(0, C):
+            mult = A * B
+            if mult % C == 1:
+                return B
 
 
     def generate_random_prime(self) -> int:
@@ -18,9 +43,12 @@ class RSA:
         return self.pr.primes[idx]
 
 
-
 # TODO: main code (asking user for M, etc)
-    
+
+rsa = RSA()
+rsa.rsa(1)
+
+
 class Primes:
 
     def __init__(self):
