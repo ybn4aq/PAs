@@ -1,3 +1,7 @@
+'''
+Sources used: https://stackoverflow.com/questions/227459/how-to-get-the-ascii-value-of-a-character
+https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/modular-inverses
+'''
 import random
 import math
 from primes import Primes
@@ -7,7 +11,7 @@ class RSA:
     def __init__(self):
         self.pr = Primes()
 
-    def rsa(self, M):
+    def rsa(self, M: str) -> None:
         # p and q will both be random primes between 1 and 1,000,000
         # p = self.generate_random_prime()
         # q = self.generate_random_prime()
@@ -21,9 +25,13 @@ class RSA:
             if math.gcd(i, phi) == 1:
                 e = i
                 break
-        print("e: " + str(e))
         d = self.get_d(e, phi)
+        print("p: "+str(p))
+        print("q: "+str(q))
+        print("e: " + str(e))
         print("d: " + str(d))
+        # Encrypting M
+
     
 
     def get_d(self, A, C) -> int:
