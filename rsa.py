@@ -141,7 +141,7 @@ class RSA:
             cur_val = decrypted_text[i]
             decrypted_text[i] = chr(cur_val)
         # Collapsing array of chars back into a string
-        decrypted_msg = "".join(str(x) for x in decrypted_text)
+        decrypted_msg = "".join(str(i) for i in decrypted_text)
         print("Original message: " + decrypted_msg)
 
     
